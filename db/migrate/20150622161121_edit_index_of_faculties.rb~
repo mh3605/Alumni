@@ -1,0 +1,4 @@
+class EditIndexOfFaculties < ActiveRecord::Migration
+  def change
+  end
+end
