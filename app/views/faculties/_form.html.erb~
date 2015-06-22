@@ -34,8 +34,7 @@
 	  <%= f.select:department_id , Department.all.collect {|x| [x.name, x.id]}, { :include_blank => "Select one"} %> <br/>
   </div>
  <div class="field">
- <%= f.label  "Research Area"%><br>
- <%=f.select :researcharea_id, Researcharea.all.collect {|x| [x.name, x.id]}, { :include_blank => "Select one"} %> <br/>
+  <%= f.label "Research Area", Researcharea.all.collect {|x| [x.name, x.id]}, { :include_blank => "Select one"} %> <br/>
 </div>
 
   <div class="actions">
