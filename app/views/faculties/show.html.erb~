@@ -15,7 +15,7 @@
   <strong>Email:</strong>
   <%= @faculty.email %>
 </p>
-<!--
+
 <p>
   <strong>Department:</strong>
   <%= @faculty.department %>
@@ -25,7 +25,7 @@
   <strong>Researcharea:</strong>
   <%= @faculty.Researcharea %>
 </p>
--->
+
 
 
 

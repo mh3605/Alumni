@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Alums</h1>
+<h1>Listing Alumni</h1>
 
 <table>
   <thead>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Alum', new_alum_path %>
+<%= link_to 'New Alumni', new_alum_path %>

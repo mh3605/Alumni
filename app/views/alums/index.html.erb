@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+	    <th>Name</th>
+	    <th>Uid</th>
       <th>Email</th>
       <th>Phone</th>
       <th>About</th>
@@ -17,7 +18,8 @@
     <% @alums.each do |alum| %>
       <tr>
         <td><%= alum.name %></td>
-        <td><%= alum.email %></td>
+	<td><%= alum.uid %> </td>
+	<td><%= alum.email %></td>
         <td><%= alum.phone %></td>
         <td><%= alum.about %></td>
         <td><%= link_to 'Show', alum %></td>
