@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Initialemployers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @initialemployers.each do |initialemployer| %>
+      <tr>
+        <td><%= initialemployer.name %></td>
+        <td><%= link_to 'Show', initialemployer %></td>
+        <td><%= link_to 'Edit', edit_initialemployer_path(initialemployer) %></td>
+        <td><%= link_to 'Destroy', initialemployer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Initialemployer', new_initialemployer_path %>

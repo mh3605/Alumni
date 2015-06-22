@@ -1,0 +1,9 @@
+class AddIndexToAlums < ActiveRecord::Migration
+  def up
+	add_column :alums, :faculty_id, :integer
+  end
+
+  def down
+	remove_column :alums, :faculty_id
+  end
+end

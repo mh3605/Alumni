@@ -1,0 +1,33 @@
+<%= form_for(@alum) do |f| %>
+  <% if @alum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alum.errors.count, "error") %> prohibited this alum from being saved:</h2>
+
+      <ul>
+      <% @alum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br>
+    <%= f.text_area :about %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
