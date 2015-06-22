@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Graduation Years</h1>
+<h1>Listing Years</h1>
 
 <table>
   <thead>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Graduation Year', new_year_path %>
+<%= link_to 'New Year', new_year_path %>

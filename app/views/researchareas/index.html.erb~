@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Research Areas</h1>
+<h1>Listing Researchareas</h1>
 
 <table>
   <thead>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Research Area', new_researcharea_path %>
+<%= link_to 'New Researcharea', new_researcharea_path %>

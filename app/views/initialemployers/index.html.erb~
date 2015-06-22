@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Initial Employer', new_initialemployer_path %>
+<%= link_to 'New Initialemployer', new_initialemployer_path %>

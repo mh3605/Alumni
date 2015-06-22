@@ -1,5 +1,5 @@
 class Faculty < ActiveRecord::Base
 has_many :alums 
-has_one :department
+belongs_to :department
 has_many :researchareas
 end
