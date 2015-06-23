@@ -3,15 +3,6 @@
 <p>
   <strong>Yr:</strong>
   <%= @year.yr %>
-  </p>
-
-  <p>
-  <strong>Alumni:</strong>
-  <ul>
-	  <% @alums.each do |alum| %>
-		  <li><%=link_to alum.name, alum%></li>
-	  <%end%>
-   </ul>
 </p>
 
 <%= link_to 'Edit', edit_year_path(@year) %> |

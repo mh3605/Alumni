@@ -6,7 +6,7 @@
   </p>
 
 <p>
-  <strong>Uid:</strong>
+  <strong>UID:</strong>
   <%= @faculty.uid %>
 </p>
 
@@ -15,28 +15,30 @@
   <strong>Email:</strong>
   <%= @faculty.email %>
 </p>
-<!--
 <p>
   <strong>Department:</strong>
   <%= @faculty.department %>
 </p>
 
 <p>
-  <strong>Researcharea:</strong>
-  <%= @faculty.Researcharea %>
+  <strong>Research Area:</strong>
+  <%= @faculty.researcharea_id %>
 </p>
--->
-
-
-
-
-
-
 
 <p>
   <strong>About:</strong>
   <%= @faculty.about %>
 </p>
 
+<p>
+<strong>Alumni:</strong>
+<ul>
+
+<% @alums.each do |alum| %>
+	<li><%=link_to alum.name, alum%></li>
+
+<%end %>
+</ul>	
+</p>
 <%= link_to 'Edit', edit_faculty_path(@faculty) %> |
 <%= link_to 'Back', faculties_path %>

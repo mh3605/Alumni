@@ -10,7 +10,7 @@ class FacultiesController < ApplicationController
   # GET /faculties/1
   # GET /faculties/1.json
   def show
-	@alums= @faculty.alums
+	@alum= @faculty.alums
   end
 
   # GET /faculties/new

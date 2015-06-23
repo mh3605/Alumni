@@ -5,6 +5,7 @@
   <%= @alum.name %>
   </p>
 
+  <!--Doesn't show properly-->
 <p>
   <strong>Uid:</strong>
   <%= @alum.uid %>
@@ -22,23 +23,26 @@
 </p>
 <p>
   <strong>Faculty:</strong>
-  <%= @alum.faculty %>
+  <%= @alum.faculty.name %>
   </p>
 <p>
-  <strong>Year:</strong>
-  <%= @alum.year %>
-</p>
+  <strong>Graduation Year:</strong>
+  <%= @alum.year.yr %>
+  </p>
+ 
+  <!--Doesn't show properly-->
 <p>
   <strong>Department:</strong>
-  <%= @alum.department %>
+  <%= @alum.department_id %>
   </p>
+ <!--Doesn't show properly-->
   <p>
   <strong>Research Area:</strong>
   <%= @alum.researcharea_id %> 
   </p>
- 
+  <!--Doesn't show properly-->
 <p>
-  <strong>Initialemployer:</strong>
+  <strong>Initial Employer:</strong>
   <%= @alum.initialemployer_id %>
 </p>
 <p>

@@ -1,3 +1,3 @@
 class Initialemployer < ActiveRecord::Base
-	has_many :alums
+has_many :alums
 end
