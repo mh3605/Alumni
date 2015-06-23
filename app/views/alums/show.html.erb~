@@ -20,7 +20,27 @@
   <strong>Phone:</strong>
   <%= @alum.phone %>
 </p>
-
+<p>
+  <strong>Faculty:</strong>
+  <%= @alum.faculty %>
+  </p>
+<p>
+  <strong>Year:</strong>
+  <%= @alum.year %>
+</p>
+<p>
+  <strong>Department:</strong>
+  <%= @alum.department %>
+  </p>
+  <p>
+  <strong>Research Area:</strong>
+  <%= @alum.researcharea_id %> 
+  </p>
+ 
+<p>
+  <strong>Initialemployer:</strong>
+  <%= @alum.initialemployer_id %>
+</p>
 <p>
   <strong>About:</strong>
   <%= @alum.about %>
