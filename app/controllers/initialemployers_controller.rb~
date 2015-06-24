@@ -10,7 +10,7 @@ class InitialemployersController < ApplicationController
   # GET /initialemployers/1
   # GET /initialemployers/1.json
   def show
-	  @alums= @initialemployer.alums
+	  @alums= @initialemployers.alums
   end
 
   # GET /initialemployers/new

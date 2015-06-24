@@ -11,7 +11,6 @@
 		<li><%=link_to alum.name, alum>%></li>
 	<%end %> 
 	</ul>
-
 </p>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |

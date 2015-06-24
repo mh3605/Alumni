@@ -10,7 +10,10 @@
       <th>Email</th>
       <th>Phone</th>
       <th>Faculty</th> 
-      <th>Graduation Year</th> 
+      <th>Graduation Year</th>
+      <th>Department</th> 
+      <th>Research Area</th>
+      <th>Initial Employer</th>
       <th>About</th>
       <th colspan="3"></th>
     </tr>
@@ -25,7 +28,10 @@
         <td><%= alum.phone %></td>
         <td><%=link_to alum.faculty.name, alum.faculty%></td>
         <td><%= alum.year.yr %></td>
-        <td><%= alum.about %></td>
+        <td><%= alum.department.name %></td>
+	<td><%= alum.researcharea_id %> </td> 
+        <td><%= alum.initialemployer_id%> </td>  
+        <td><%= alum.about %></td>   
         <td><%= link_to 'Show', alum %></td>
         <td><%= link_to 'Edit', edit_alum_path(alum) %></td>
         <td><%= link_to 'Destroy', alum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

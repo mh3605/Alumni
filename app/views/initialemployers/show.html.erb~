@@ -5,15 +5,5 @@
   <%= @initialemployer.name %>
 </p>
 
-<p>
-<strong>Alumni:</strong>
-<ul>
-	<%@alums.each do |alum| %>
-		<li><%= link_to alum.name, alum %></li>
-	<% end %>
-</ul>
-</p>
-
-
 <%= link_to 'Edit', edit_initialemployer_path(@initialemployer) %> |
 <%= link_to 'Back', initialemployers_path %>

@@ -5,15 +5,5 @@
   <%= @researcharea.name %>
 </p>
 
-<p>
-<strong>Alumni:</strong>
-<ul>
-	<%@alums.each do |alum| %>
-		<li><%= link_to alum.name, alum%></li>
-	<%end%>
-</ul>
-</p>
-
-
 <%= link_to 'Edit', edit_researcharea_path(@researcharea) %> |
 <%= link_to 'Back', researchareas_path %>

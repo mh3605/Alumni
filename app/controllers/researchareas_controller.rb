@@ -12,6 +12,7 @@ class ResearchareasController < ApplicationController
   # GET /researchareas/1
   # GET /researchareas/1.json
   def show
+	  @alums= @researcharea.alums
   end
 
   # GET /researchareas/new

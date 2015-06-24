@@ -6,11 +6,13 @@ class ResearchareasController < ApplicationController
   # GET /researchareas.json
   def index
     @researchareas = Researcharea.all
+    @heading= "Research Areas"
   end
 
   # GET /researchareas/1
   # GET /researchareas/1.json
   def show
+	  @alums= @researchareas.alums
   end
 
   # GET /researchareas/new
