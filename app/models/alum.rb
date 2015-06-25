@@ -3,5 +3,6 @@ class Alum < ActiveRecord::Base
 	belongs_to :year
 	belongs_to :department
 	belongs_to :employer
-	has_many :researchareas
+	belongs_to :researcharea
+	belongs_to :initialemployer
 end

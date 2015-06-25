@@ -1,7 +1,7 @@
 class Alum < ActiveRecord::Base
-	has_one :faculty
-	has_one :year
-	has_one :department
-	has_one :employer
+	belongs_to :faculty
+	belongs_to :year
+	belongs_to :department
+	belongs_to :employer
 	has_many :researchareas
 end
