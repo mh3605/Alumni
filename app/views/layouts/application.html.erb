@@ -20,6 +20,16 @@
 	<% end %>
 </div>
 
+<div>
+	<ul class= "main-nav">
+		<li><%= link_to "Alumni", root_path %></li>
+		<li><%= link_to "Faculty", faculties_path%></li>
+		<li><%=link_to "Department", departments_path %></li>
+		<li><%=link_to "Research Areas", researchareas_path %></li>
+		<li><%=link_to "Initial Employers", initialemployers_path %></li>
+		<li><%=link_to "Graduation Years", years_path%></li>
+	</ul>
+</div>
 
 <p class = "alert"> <%= alert %> </p>
 <%= yield %>
