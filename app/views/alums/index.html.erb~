@@ -20,6 +20,7 @@
   </thead>
 
   <tbody>
+    <%@alums.order(name: :asc) %>
     <% @alums.each do |alum| %>
       <tr>
         <td><%= alum.name %></td>
@@ -27,10 +28,10 @@
 	<td><%= alum.email %></td>
         <td><%= alum.phone %></td>
         <td><%=link_to alum.faculty.name, alum.faculty%></td>
-        <td><%= alum.year.yr %></td>
-        <td><%= alum.department.name %></td>
-	<td><%= alum.researcharea.name %> </td> 
-        <td><%= alum.initialemployer.name%> </td>  
+        <td><%= link_to alum.year.yr, alum.year %></td>
+        <td><%=link_to  alum.department.name, alum.department %></td>
+	<td><%=link_to  alum.researcharea.name, alum.researcharea %> </td> 
+        <td><%=link_to  alum.initialemployer.name, alum.initialemployer%> </td>  
         <td><%= alum.about %></td>   
         <td><%= link_to 'Show', alum %></td>
         <td><%= link_to 'Edit', edit_alum_path(alum) %></td>

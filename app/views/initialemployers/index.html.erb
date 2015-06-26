@@ -11,7 +11,8 @@
   </thead>
 
   <tbody>
-    <% @initialemployers.each do |initialemployer| %>
+    <%initialemployershash= @initialemployers.order(name: :asc) %>
+    <% initialemployershash.each do |initialemployer| %>
       <tr>
         <td><%= initialemployer.name %></td>
         <td><%= link_to 'Show', initialemployer %></td>

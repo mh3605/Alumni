@@ -11,7 +11,8 @@
   </thead>
 
   <tbody>
-    <% @researchareas.each do |researcharea| %>
+    <%researchareashash= @researchareas.order(name: :asc) %>
+    <% researchareashash.each do |researcharea| %>
       <tr>
         <td><%= researcharea.name %></td>
         <td><%= link_to 'Show', researcharea %></td>

@@ -20,7 +20,8 @@
   </thead>
 
   <tbody>
-    <% @alums.each do |alum| %>
+    <%alumhash= @alums.order(name: :asc) %>
+    <% alumhash.each do |alum| %>
       <tr>
         <td><%= alum.name %></td>
 	<td><%= alum.uid %> </td>

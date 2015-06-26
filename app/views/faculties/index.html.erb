@@ -14,7 +14,8 @@
   </thead>
 
   <tbody>
-    <% @faculties.each do |faculty| %>
+    <%facultieshash= @faculties.order(name: :asc) %>
+    <% facultieshash.each do |faculty| %>
       <tr>
 	      <td><%= faculty.name %></td>
 	      <td><%= faculty.uid %> </td>

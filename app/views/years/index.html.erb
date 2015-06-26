@@ -11,7 +11,8 @@
   </thead>
 
   <tbody>
-    <% @years.each do |year| %>
+    <%yearshash=@years.order(yr: :desc) %>
+    <% yearshash.each do |year| %>
       <tr>
         <td><%= year.yr %></td>
         <td><%= link_to 'Show', year %></td>

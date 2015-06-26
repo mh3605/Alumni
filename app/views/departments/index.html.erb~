@@ -11,8 +11,7 @@
   </thead>
 
   <tbody>
-    <%departmentshash= @departments.order(name: :asc) %>	  
-    <% departmentshash.each do |department| %>
+    <% @departments.each do |department| %>
       <tr>
         <td><%= department.name %></td>
         <td><%= link_to 'Show', department %></td>
