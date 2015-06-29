@@ -1,5 +1,6 @@
 class AlumsController < ApplicationController
-  before_action :set_alum, only: [:show, :edit, :update, :destroy]
+	before_filter :authenticate_user!, :except=> [:index] 
+      	before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
   # GET /alums
   # GET /alums.json
@@ -69,6 +70,6 @@ class AlumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alum_params
-      params.require(:alum).permit(:name, :email, :phone, :faculty_id, :year_id,:department_id, :researcharea_id, :initialemployer_id, :about)
+      params.require(:alum).permit(:name,:uid,  :email, :phone, :faculty_id, :year_id,:department_id, :researcharea_id, :initialemployer_id, :about)
     end
 end

@@ -1,4 +1,4 @@
-
+<p id= "notice"><%= notice %> </p>
 
 <p>
   <strong>Name:</strong>
@@ -23,7 +23,7 @@
 </p>
 <p>
   <strong>Faculty:</strong>
-  <%= @alum.faculty.name %>
+  <%= link_to @alum.faculty.name, @alum.faculty %>
   </p>
 <p>
   <strong>Graduation Year:</strong>
@@ -38,12 +38,12 @@
 
   <p>
   <strong>Research Area:</strong>
-  <%= @alum.researcharea_id %> 
+  <%= @alum.researcharea.name %> 
   </p>
 
 <p>
   <strong>Initial Employer:</strong>
-  <%= @alum.initialemployer_id %>
+  <%= @alum.initialemployer.name %>
 </p>
 <p>
   <strong>About:</strong>

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
+  #can manage users at localhost:3000/admin/users
+  scope "/admin" do 
+	  resources :users
+  end
  # devise_for :installs
   resources :researchareas
   resources :years
