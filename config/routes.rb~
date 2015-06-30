@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  get 'users/index'
 
-  #can manage users at localhost:3000/admin/users
-  scope "/admin" do 
-	  resources :users
-  end
+  get 'users/edit'
+
+  get 'users/show'
+
+  devise_for :users, :path_prefix => "profile"
+ 	 resources :users, :only => [:index, :show, :edit, :update, :destroy]
+  
  # devise_for :installs
   resources :researchareas
   resources :years

@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :users 
+  devise_for :views
+  get 'users/index'
 
+  get 'users/edit'
+
+  get 'users/show'
+
+  devise_for :users, :path_prefix => "profile"
+ #	 resources :users, :only => [:index, :show, :edit, :update, :destroy]
+  
  # devise_for :installs
   resources :researchareas
   resources :years

@@ -12,7 +12,9 @@
 	<% if user_signed_in? %>
 		Welcome, <%= current_user.email %>
 		&nbsp;|&nbsp;
-		<%= link_to "log out", destroy_user_session_path(user_session), :method => :delete %>  
+		<%= link_to "log out", destroy_user_session_path(user_session), :method => :delete %> 
+		&nbsp;|&nbsp;
+		<%= link_to "edit account", edit_user_registration_path%>	
 	<% else %>
 		<%= link_to "log in", new_user_session_path %>
 		&nbsp;|&nbsp;
@@ -20,6 +22,16 @@
 	<% end %>
 </div>
 
+<div>
+	<ul class= "main-nav">
+		<li><%= link_to "Alumni", root_path %></li>
+		<li><%= link_to "Faculty", faculties_path%></li>
+		<li><%=link_to "Department", departments_path %></li>
+		<li><%=link_to "Research Areas", researchareas_path %></li>
+		<li><%=link_to "Initial Employers", initialemployers_path %></li>
+		<li><%=link_to "Graduation Years", years_path%></li>
+	</ul>
+</div>
 
 <p class = "alert"> <%= alert %> </p>
 <%= yield %>

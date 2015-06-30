@@ -43,5 +43,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'devise'
+
+  gem 'cancancan'
 end
 
