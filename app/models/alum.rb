@@ -5,4 +5,6 @@ class Alum < ActiveRecord::Base
 	belongs_to :employer
 	belongs_to :researcharea
 	belongs_to :initialemployer
+
+	has_one :user
 end

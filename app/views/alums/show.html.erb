@@ -1,5 +1,16 @@
 <p id= "notice"><%= notice %> </p>
 
+
+<p>
+  <strong>UserID:</strong>
+  <% if @alum.user_id==nil %>
+	  <%= "nil" %>
+  <%else%>
+	  <%=@alum.user_id%>
+  <%end %>
+</p>
+
+
 <p>
   <strong>Name:</strong>
   <%= @alum.name %>
@@ -16,6 +27,7 @@
   <strong>Email:</strong>
   <%= @alum.email %>
 </p>
+
 
 <p>
   <strong>Phone:</strong>

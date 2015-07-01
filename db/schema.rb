@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630184102) do
+ActiveRecord::Schema.define(version: 20150701142756) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150630184102) do
     t.integer  "initialemployer_id"
     t.integer  "year_id"
     t.integer  "uid"
+    t.integer  "user_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150630184102) do
     t.integer  "department_id"
     t.integer  "researcharea_id"
     t.integer  "uid"
+    t.integer  "user_id"
   end
 
   create_table "initialemployers", force: :cascade do |t|
@@ -118,6 +120,8 @@ ActiveRecord::Schema.define(version: 20150630184102) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+    t.integer  "faculty_id"
+    t.integer  "alum_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
