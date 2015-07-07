@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Graduation Years</h1>
+<h1>Graduation Years</h1>
 
 <table>
   <thead>
@@ -16,8 +16,10 @@
       <tr>
         <td><%= year.yr %></td>
         <td><%= link_to 'Show', year %></td>
+         <% if can? :update, @year%> 
         <td><%= link_to 'Edit', edit_year_path(year) %></td>
         <td><%= link_to 'Destroy', year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

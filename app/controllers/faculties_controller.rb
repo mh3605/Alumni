@@ -1,4 +1,5 @@
 class FacultiesController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_faculty, only: [:show, :edit, :update, :destroy]
  
@@ -11,7 +12,7 @@ class FacultiesController < ApplicationController
   # GET /faculties/1
   # GET /faculties/1.json
   def show
-	@alums= @faculty.alums
+    @alums= @faculty.alums
   end
 
   # GET /faculties/new
@@ -71,6 +72,6 @@ class FacultiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def faculty_params
-      params.require(:faculty).permit(:name, :email, :uid, :department, :about)
+      params.require(:faculty).permit(:name, :email, :uid, :department_id, :about)
     end
 end

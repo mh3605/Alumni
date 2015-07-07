@@ -30,12 +30,14 @@
         <td><%=link_to alum.faculty.name, alum.faculty%></td>
         <td><%= link_to alum.year.yr, alum.year %></td>
         <td><%=link_to  alum.department.name, alum.department %></td>
-	<td><%=link_to  alum.researcharea.name, alum.researcharea %> </td> 
+	      <td><%=link_to  alum.researcharea.name, alum.researcharea %> </td> 
         <td><%=link_to  alum.initialemployer.name, alum.initialemployer%> </td>  
-        <td><%= alum.about %></td>   
+        <td><%= alum.about %></td>  
         <td><%= link_to 'Show', alum %></td>
+        <% if can? :update, @article%> 
         <td><%= link_to 'Edit', edit_alum_path(alum) %></td>
         <td><%= link_to 'Destroy', alum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
       </tr>
     <% end %>
   </tbody>

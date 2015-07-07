@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>FacultyID:</strong>
+  <% if @faculty.user_id==nil %>
+    <%= "nil" %>
+  <%else%>
+    <%=@faculty.user_id%>
+  <%end %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @faculty.name %>
   </p>
@@ -17,7 +26,7 @@
 </p>
 <p>
   <strong>Department:</strong>
-  <%= @faculty.department %>
+  <%= @faculty.department_id%>
 </p>
 
 <p>
@@ -40,5 +49,7 @@
 <%end %>
 </ul>	
 </p>
+ <% if can? :update, @faculty%> 
 <%= link_to 'Edit', edit_faculty_path(@faculty) %> |
+<%end %>
 <%= link_to 'Back', faculties_path %>

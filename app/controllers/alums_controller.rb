@@ -1,11 +1,12 @@
 class AlumsController < ApplicationController
-	before_filter :authenticate_user!, :except=> [:index, :show] 
-      	before_action :set_alum, only: [:show, :edit, :update, :destroy]
+	load_and_authorize_resource
+  before_filter :authenticate_user!, :except=> [:index, :show]   
+  before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
   # GET /alums
   # GET /alums.json
   def index
-    @alums = Alum.all
+    #@alums = Alum.all
   end
 
   # GET /alums/1

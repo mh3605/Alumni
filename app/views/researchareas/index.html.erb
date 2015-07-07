@@ -16,8 +16,10 @@
       <tr>
         <td><%= researcharea.name %></td>
         <td><%= link_to 'Show', researcharea %></td>
+         <% if can? :update, @researcharea%> 
         <td><%= link_to 'Edit', edit_researcharea_path(researcharea) %></td>
         <td><%= link_to 'Destroy', researcharea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

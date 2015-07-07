@@ -14,6 +14,7 @@
 </ul>
 </p>
 
-
+ <% if can? :update, @initialemployer%> 
 <%= link_to 'Edit', edit_initialemployer_path(@initialemployer) %> |
+<%end%>
 <%= link_to 'Back', initialemployers_path %>

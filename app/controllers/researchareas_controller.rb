@@ -1,4 +1,5 @@
 class ResearchareasController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_researcharea, only: [:show, :edit, :update, :destroy]
 

@@ -62,5 +62,7 @@
   <%= @alum.about %>
 </p>
 
+ <% if can? :update, @article%> 
 <%= link_to 'Edit', edit_alum_path(@alum) %> |
+<%end%>
 <%= link_to 'Back', alums_path %>

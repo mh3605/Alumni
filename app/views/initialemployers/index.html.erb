@@ -16,8 +16,10 @@
       <tr>
         <td><%= initialemployer.name %></td>
         <td><%= link_to 'Show', initialemployer %></td>
+         <% if can? :update, @initialemployer%> 
         <td><%= link_to 'Edit', edit_initialemployer_path(initialemployer) %></td>
         <td><%= link_to 'Destroy', initialemployer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

@@ -7,4 +7,8 @@ class Alum < ActiveRecord::Base
 	belongs_to :initialemployer
 
 	has_one :user
+
+	def owner? (user)
+		return id == user.alumId
+	end
 end
