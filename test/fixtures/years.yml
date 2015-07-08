@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  yr: 1
+2015:
+  yr: 2015
 
-two:
-  yr: 1
+1990:
+  yr: 1990
+
+2000:
+	yr: 2000

@@ -1,7 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+aritificial_intelligence:
+  name: Artificial Intelligence
 
-two:
-  name: MyString
+programming_languages:
+  name: Programming Languages
+
+graphics:
+  name: Graphics
+
+security:
+	name: Security
+

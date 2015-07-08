@@ -1,13 +1,49 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  phone: MyString
-  about: MyText
+michelle:
+  name: Michelle
+  uid: 20
+  email: michellehao01@gmail.com
+  phone: 7237892347
+  faculty: jeff_foster
+  year: 2000
+  department: computer_science
+  researcharea: graphics
+  initialemployer: apple
+  about: all about Michelle
 
-two:
-  name: MyString
-  email: MyString
-  phone: MyString
-  about: MyText
+eric:
+  name: Eric
+  uid: 234
+  email: eric@gmail.com
+  phone: 8392719840
+  faculty: jeff_foster
+  year: 2015
+  department: computer_science
+  researcharea: graphics
+  initialemployer: apple
+  about: all about eric
+
+emily:
+  name: Emily
+  uid: 23423
+  email: emily@gmail.com
+  phone: 8392719840
+  faculty: michael_hicks
+  year: 1990
+  department: computer_science
+  researcharea: security
+  initialemployer: google
+  about: all about emily
+
+ andrew:
+  name: Andrew
+  uid: 89
+  email: andrew@gmail.com
+  phone: 8392719840
+  faculty: elaine_shi
+  year: 2000
+  department: computer_science
+  researcharea: aritificial_intelligence
+  initialemployer: google
+  about: all about andrew
