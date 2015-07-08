@@ -9,6 +9,8 @@ class Alum < ActiveRecord::Base
 	has_one :user
 
 	def owner? (user)
-		return id == user.alumId
+		logger.debug("Checking alum owner?")
+		return user_id== user.id
+		#return id == user.alumId
 	end
 end

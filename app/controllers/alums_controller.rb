@@ -6,7 +6,7 @@ class AlumsController < ApplicationController
   # GET /alums
   # GET /alums.json
   def index
-    #@alums = Alum.all
+    @alums = Alum.all
   end
 
   # GET /alums/1
@@ -42,6 +42,7 @@ class AlumsController < ApplicationController
   # PATCH/PUT /alums/1
   # PATCH/PUT /alums/1.json
   def update
+    @alum = Alum.find(params[:id])
     respond_to do |format|
       if @alum.update(alum_params)
         format.html { redirect_to @alum, notice: 'Alum was successfully updated.' }
@@ -56,6 +57,7 @@ class AlumsController < ApplicationController
   # DELETE /alums/1
   # DELETE /alums/1.json
   def destroy
+    Alum.find(params[:id])
     @alum.destroy
     respond_to do |format|
       format.html { redirect_to alums_url, notice: 'Alum was successfully destroyed.' }

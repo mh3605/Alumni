@@ -24,10 +24,10 @@
         <td><%=faculty.department %></td>
         <td><%= faculty.about %></td>
         <td><%= link_to 'Show', faculty %></td>
-         <% if can? :update, @faculty%> 
+         <td> <% if can? :update, faculty%>  </td>
         <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
         <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -36,4 +36,15 @@ class User < ActiveRecord::Base
  	logger.debug("In faculty method: #{!(faculty_id.nil?)}")
  	return !(faculty_id.nil?)
  end
+
+ def getFaculty  #returns all the faculty...
+ 	logger.debug "inside getFaculty method"
+ 	Faculty.all.each do |f| #it just never goes inside loop... returns Faculty.all
+ 		logger.debug "inspecting #{f.inspect}"
+ 		if f.user_id == id 
+ 			return f 
+ 		end
+ 	end
+ end
+
 end

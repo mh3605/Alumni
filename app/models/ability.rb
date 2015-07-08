@@ -14,47 +14,43 @@ class Ability
 
        Rails.logger.debug "USER/FACULTY: #{user.faculty?}"
        Rails.logger.debug "faculty_id: #{user.facultyId}"
-      can :index, :all
-       if user.admin? #everything works for admin
+
+        can :read, :all
+
+      if user.admin? #everything works for admin
          can :manage, :all
 
          #user is not admin
-       
-       #AGHHHHHHHHHHHHH ASKDLFASL;KDFJALS;K
-       elsif user.nil?
-        Rails.loger.debug "WHY IS IT NIL"
-       
 
 
-       elsif user.alum?
-        Rails.logger.debug "in elsif"
+      elsif user.alum?
+        Rails.logger.debug "in alum elsif"
+        #NOTHING PAST THIS POINT RUNS
+        #https://github.com/activeadmin/activeadmin/issues/1355
         can :update, Alum do |a|
-          Rails.logger.debug "Inside do each"  #never gets here.... why?
-          Rails.logger.debug "Okay.... #{a.owner}"
+          Rails.logger.debug "Inside alum do each"  #never gets past here.... why?
+          Rails.logger.debug "Okay.... #{a.owner? user}"
           a.owner? user
-        end
+      end
+
+    elsif user.faculty?
+        Rails.logger.debug "calling getFaculty"
+        Rails.logger.debug "getFaculty returns #{user.getFaculty.inspect}" #returns right faculty
+        can :update, user.getFaculty
+        Rails.logger.debug "can the user update the faculty? #{can? :update, user.getFaculty}"
+
+
+      #elsif user.faculty?
+       # Rails.logger.debug "in faculty elsif"
+        #can :update, Faculty do |f|
+         # Rails.logger.debug "Inside faculty do each"  
+          #Rails.logger.debug "Okay.... #{a.owner}"
+          #f.owner? user
+      #end
         
-
-       #elsif !(user.alum_id.nil?) #user is alum #line breaks entire program??
-        #can :update, Alum do |a|
-         # a.owner? user
-        #end
-
-        #elsif (user.facutly_id) != nil
-        # can :update, Alum do |alum|
-            #alum.try(:user_id) == user._id
-            #end
-            
-     
-      #elsif user.faculty_id != nil #user is faculty
-       #  can :update, Faculty do |faculty|
-       #      faculty.try(:id)== user.faculty_id
-       #    end
-      
-
-          else 
-            can :read, :all
-          end
+      else 
+          can :read, :all
+      end
     
     # The first argument to `can` is the action you are giving the user
     # permission to do.
