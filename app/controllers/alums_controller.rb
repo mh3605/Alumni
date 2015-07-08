@@ -1,5 +1,6 @@
 class AlumsController < ApplicationController
 	load_and_authorize_resource
+  skip_authorize_resource :only => [:show, :index]
   before_filter :authenticate_user!, :except=> [:index, :show]   
   before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
@@ -26,7 +27,7 @@ class AlumsController < ApplicationController
   # POST /alums
   # POST /alums.json
   def create
-    @alum = Alum.new(alum_params)
+    #@alum = Alum.new(alum_params)
 
     respond_to do |format|
       if @alum.save
@@ -42,7 +43,7 @@ class AlumsController < ApplicationController
   # PATCH/PUT /alums/1
   # PATCH/PUT /alums/1.json
   def update
-    @alum = Alum.find(params[:id])
+    #@alum = Alum.find(params[:id])
     respond_to do |format|
       if @alum.update(alum_params)
         format.html { redirect_to @alum, notice: 'Alum was successfully updated.' }
@@ -57,7 +58,7 @@ class AlumsController < ApplicationController
   # DELETE /alums/1
   # DELETE /alums/1.json
   def destroy
-    Alum.find(params[:id])
+    #@alum =Alum.find(params[:id])
     @alum.destroy
     respond_to do |format|
       format.html { redirect_to alums_url, notice: 'Alum was successfully destroyed.' }
@@ -68,7 +69,7 @@ class AlumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alum
-      @alum = Alum.find(params[:id])
+      #@alum = Alum.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

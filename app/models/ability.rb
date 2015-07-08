@@ -15,7 +15,7 @@ class Ability
        Rails.logger.debug "USER/FACULTY: #{user.faculty?}"
        Rails.logger.debug "faculty_id: #{user.facultyId}"
 
-        can :read, :all
+      can :read, :all
 
       if user.admin? #everything works for admin
          can :manage, :all
@@ -38,6 +38,9 @@ class Ability
         Rails.logger.debug "getFaculty returns #{user.getFaculty.inspect}" #returns right faculty
         can :update, user.getFaculty
         Rails.logger.debug "can the user update the faculty? #{can? :update, user.getFaculty}"
+        can :update, Alum do |a|
+          a.faculty == user.getFaculty
+        end
 
 
       #elsif user.faculty?

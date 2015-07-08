@@ -1,5 +1,6 @@
 class InitialemployersController < ApplicationController
     load_and_authorize_resource
+     skip_authorize_resource :only => [:show, :index]
     before_filter :authenticate_user!, :except => [:index, :show]
     before_action :set_initialemployer, only: [:show, :edit, :update, :destroy]
 
