@@ -1,8 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 elaine_shi:
   name: Elaine Shi
-  uid:901
+  uid: 901
   email: elaine@cs.umd.edu
   department: computer_science
   about: about elaine
@@ -13,8 +12,9 @@ jeff_foster:
   email: jfoster@cs.umd.edu
   department: computer_science
   about: about Jeff
+  user: user_faculty_jeff
 
- michael_hicks:
+michael_hicks:
   name: Michael Hicks
   uid: 293
   email: mhicks@cs.umd.edu

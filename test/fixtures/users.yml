@@ -5,25 +5,25 @@
 # below each fixture, per the syntax in the comments below
 #
 user_alum_michelle:
-	email: michellehao01@gmail.com
-	admin: false
-	faculty: nil
-	alum: michelle
+  email: michellehao01@gmail.com
+  admin: false
+  faculty: nil
+  alum: michelle
 
 user_admin:
-	email: admin@gmail.com
-	admin: true
-	faculty: nil
-	alum: nil
+  email: admin@gmail.com
+  admin: true
+  faculty: nil
+  alum: nil
 
 user_student:
-	email: student@gmail.com
-	admin: false
-	faculty: nil
-	alum: nil
+  email: student@gmail.com
+  admin: false
+  faculty: nil
+  alum: nil
 
 user_faculty_jeff:
-	email: jfoster@cs.umd.edu
-	admin: false
-	faculty: jeff_foster
-	alum: nil
+  email: jfoster@cs.umd.edu
+  admin: false
+  faculty: jeff_foster
+  alum: nil

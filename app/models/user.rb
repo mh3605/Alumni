@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable #, :confirmable
  
- belongs_to :alumni
- belongs_to :faculty
+ belongs_to :alum, :foreign_key => "alum_id"
+ belongs_to :faculty, :foreign_key => "faculty_id"
 
  def admin?
 	admin

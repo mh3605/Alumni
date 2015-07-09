@@ -1,5 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 michelle:
   name: Michelle
   uid: 20
@@ -11,6 +10,7 @@ michelle:
   researcharea: graphics
   initialemployer: apple
   about: all about Michelle
+  user: user_alum_michelle
 
 eric:
   name: Eric
@@ -36,7 +36,7 @@ emily:
   initialemployer: google
   about: all about emily
 
- andrew:
+andrew:
   name: Andrew
   uid: 89
   email: andrew@gmail.com
