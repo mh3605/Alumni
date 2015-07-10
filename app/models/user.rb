@@ -4,37 +4,35 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable #, :confirmable
  
- belongs_to :alum, :foreign_key => "alum_id"
- belongs_to :faculty, :foreign_key => "faculty_id"
+ has_one :alum
+ has_one :faculty
 
  def admin?
 	admin
  end	
 
  def alum?
- 	logger.debug("In alum method: #{!(alum_id.nil?)}")
- return !(alum_id.nil?)
+ return !(alum.nil?)
  end
 
  def alumId
- 	if alum_id.nil? 
- 		return
+ 	if alum.nil? 
+ 		return nil
  	else
- 		return alum_id
+ 		return alum.id
  	end
  end
 
   def facultyId
- 	if faculty_id.nil? 
- 		return
+ 	if faculty.nil? 
+ 		return nil
  	else
- 		return faculty_id
+ 		return faculty.id
  	end
  end
 
  def faculty?
- 	logger.debug("In faculty method: #{!(faculty_id.nil?)}")
- 	return !(faculty_id.nil?)
+ 	return !(faculty.nil?)
  end
 
  def getFaculty  #returns all the faculty...

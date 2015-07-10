@@ -19,6 +19,6 @@ class AlumTest < ActiveSupport::TestCase
     assert alum.name == "Michelle"
     user= users(:user_alum_michelle)
     assert user.alum == "michelle"
-    assert alum.owner? user 
+    assert alum.owner? users(:user_alum_michelle)
   end
 end
