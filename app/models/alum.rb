@@ -13,6 +13,6 @@ class Alum < ActiveRecord::Base
 
 	def owner? (user)
 		logger.debug("Checking alum owner?")
-		return user_id== user.id
+		return user_id == user.id
 	end
 end

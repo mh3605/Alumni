@@ -15,10 +15,6 @@ class AlumTest < ActiveSupport::TestCase
   end
 
   test "owner functionality" do
-    alum = alums(:michelle)
-    assert alum.name == "Michelle"
-    user= users(:user_alum_michelle)
-    assert user.alum == "michelle"
-    assert alum.owner? users(:user_alum_michelle)
+    assert alums(:michelle).owner? users(:user_alum_michelle)
   end
 end
