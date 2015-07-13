@@ -21,7 +21,7 @@
 	      <td><%= faculty.name %></td>
 	      <td><%= faculty.uid %> </td>
         <td><%= faculty.email %></td>
-        <td><%=faculty.department %></td>
+        <td><%= faculty.department_id %></td>
         <td><%= faculty.about %></td>
         <td><%= link_to 'Show', faculty %></td>
          <td> <% if can? :update, faculty%>  </td>

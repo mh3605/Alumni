@@ -44,7 +44,7 @@
 
 
   <div class= "field">
-	  <%= f.label :department_id %> <br>
+	  <%= f.label "Department" %> <br>
 	<%=f.select :department_id, Department.all.collect {|x| [x.name, x.id]},{:include_blank => "Select one"} %> <br />
 </div>
 
