@@ -1,13 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>FacultyID:</strong>
-  <% if @faculty.user_id==nil %>
-    <%= "nil" %>
-  <%else%>
-    <%=@faculty.user_id%>
-  <%end %>
-</p>
 
 <p>
   <strong>Name:</strong>
@@ -26,12 +18,12 @@
 </p>
 <p>
   <strong>Department:</strong>
-  <%= @faculty.department_id%>
+  <%= @faculty.department.name%>
 </p>
 
 <p>
   <strong>Research Area:</strong>
-  <%= @faculty.researcharea_id %>
+  <%= @faculty.researcharea_id%>
 </p>
 
 <p>
