@@ -20,11 +20,33 @@
     <% facultieshash.each do |faculty| %>
       <tr>
 	      <td><%= faculty.name %></td>
-	      <td><%= faculty.uid %> </td>
-        <td><%= faculty.email %></td>
-        <td><%= faculty.department.name %></td>
+
+        <%if faculty.uid.nil? %>
+          <td>No UID</td>
+          <%else%>
+          <td><%=faculty.uid%>  </td>
+        <% end %>
+
+         <%if faculty.email.nil? %>
+          <td>No Email</td>
+          <%else%>
+          <td><%=faculty.email%>  </td>
+         <% end %>
+
+         <%if faculty.department.nil? %>
+          <td>No Department</td>
+          <%else%>
+          <td><%=link_to faculty.department.name, faculty.department%>  </td>
+        <% end %>
+
         <td><%= faculty.researcharea_id %> </td>
-        <td><%= faculty.about %></td>
+
+        <%if faculty.about.nil? %>
+          <td>No info.</td>
+          <%else%>
+          <td><%=faculty.about%>  </td>
+        <% end %>  
+
         <td><%= link_to 'Show', faculty %></td>
          <td> <% if can? :update, faculty%>  </td>
         <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>

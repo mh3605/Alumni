@@ -6,30 +6,39 @@
   <%= @faculty.name %>
   </p>
 
+<%if !@faculty.uid.nil? %>
 <p>
   <strong>UID:</strong>
   <%= @faculty.uid %>
 </p>
+<% end %>
 
-
+<%if !@faculty.email.nil? %>
 <p>
   <strong>Email:</strong>
   <%= @faculty.email %>
 </p>
+<%end%>
+
+<%if !@faculty.department.nil? %>
 <p>
   <strong>Department:</strong>
   <%= @faculty.department.name%>
 </p>
+<%end%>
 
 <p>
   <strong>Research Area:</strong>
   <%= @faculty.researcharea_id%>
 </p>
 
+
+<%if !@faculty.about.nil? %>
 <p>
   <strong>About:</strong>
   <%= @faculty.about %>
 </p>
+<%end%>
 
 <p>
 <strong>Alumni:</strong>

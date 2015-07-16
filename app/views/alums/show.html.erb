@@ -2,65 +2,73 @@
 
 
 <p>
-  <strong>UserID:</strong>
-  <% if @alum.user_id==nil %>
-	  <%= "nil" %>
-  <%else%>
-	  <%=@alum.user_id%>
-  <%end %>
-</p>
-
-
-<p>
   <strong>Name:</strong>
   <%= @alum.name %>
   </p>
 
-
+<%if !@alum.uid.nil? %>
 <p>
   <strong>UID:</strong>
   <%= @alum.uid %>
 </p>
+<%end%>
 
-
+<%if !@alum.email.nil? %>
 <p>
   <strong>Email:</strong>
   <%= @alum.email %>
 </p>
+<%end%>
 
-
+<%if !@alum.phone.nil? %>
 <p>
   <strong>Phone:</strong>
   <%= @alum.phone %>
 </p>
+<%end%>
+
+<%if !@alum.faculty.nil? %>
 <p>
   <strong>Faculty:</strong>
   <%= link_to @alum.faculty.name, @alum.faculty %>
   </p>
+<%end%>
+
+<%if !@alum.year.nil? %>
 <p>
   <strong>Graduation Year:</strong>
   <%= link_to @alum.year.yr, @alum.year %>
-  </p>
+</p>
+<%end%>
  
- 
+ <%if !@alum.department.nil? %>
 <p>
   <strong>Department:</strong>
   <%=link_to  @alum.department.name, @alum.department %>
   </p>
+  <%end%>
 
+<%if !@alum.researcharea.nil? %>
   <p>
   <strong>Research Area:</strong>
   <%=link_to  @alum.researcharea.name, @alum.researcharea %> 
   </p>
+  <%end%>
 
-<p>
-  <strong>Initial Employer:</strong>
-  <%=link_to  @alum.initialemployer.name, @alum.initialemployer %>
-</p>
+
+<%if !@alum.initialemployer.nil? %>
+  <p>
+    <strong>Initial Employer:</strong>
+    <%=link_to  @alum.initialemployer.name, @alum.initialemployer %>
+  </p>
+<%end%>
+
+<%if !@alum.about.nil? %>
 <p>
   <strong>About:</strong>
   <%= @alum.about %>
 </p>
+<%end%>
 
  <% if can? :update, @article%> 
 <%= link_to 'Edit', edit_alum_path(@alum) %> |

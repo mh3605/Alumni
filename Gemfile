@@ -45,5 +45,9 @@ group :development, :test do
   gem 'devise'
 
   gem 'cancancan'
+
+  gem 'ruby-prof', group: :test
+  gem 'rails-perftest'
+  gem 'test-unit', group: :test
 end
 

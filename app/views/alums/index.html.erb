@@ -23,16 +23,62 @@
     <%alumhash= @alums.order(name: :asc) %>
     <% alumhash.each do |alum| %>
       <tr>
-        <td><%= alum.name %></td>
-	<td><%= alum.uid %> </td>
-	<td><%= alum.email %></td>
-        <td><%= alum.phone %></td>
-        <td><%=link_to alum.faculty.name, alum.faculty%></td>
-        <td><%= link_to alum.year.yr, alum.year %></td>
-        <td><%=link_to  alum.department.name, alum.department %></td>
-	      <td><%=link_to  alum.researcharea.name, alum.researcharea %> </td> 
-        <td><%=link_to  alum.initialemployer.name, alum.initialemployer%> </td>  
-        <td><%= alum.about %></td>  
+      <td><%= alum.name %></td>
+
+      <%if alum.uid.nil? %>
+          <td>No UID</td>
+          <%else%>
+          <td><%=alum.uid%>  </td>
+        <% end %>
+
+       <%if alum.email.nil? %>
+          <td>No Email</td>
+          <%else%>
+          <td><%=alum.email%>  </td>
+      <% end %>
+
+      <%if alum.phone.nil? %>
+          <td>No Phone Number Available</td>
+          <%else%>
+          <td><%=alum.phone%>  </td>
+      <% end %>
+      
+       <%if alum.faculty.nil? %>
+          <td>No Faculty</td>
+          <%else%>
+          <td><%=link_to alum.faculty.name, alum.faculty%>  </td>
+        <% end %>
+
+        <%if alum.year.nil? %>
+          <td>No year avaliable.</td>
+          <%else%>
+          <td><%=link_to alum.year.yr, alum.year%>  </td>
+        <% end %>
+
+        <%if alum.department.nil? %>
+          <td>No Department</td>
+          <%else%>
+          <td><%=link_to alum.department.name, alum.department%>  </td>
+        <% end %>
+
+        <%if alum.researcharea.nil? %>
+          <td>No Research Area</td>
+          <%else%>
+          <td><%=link_to alum.researcharea.name, alum.researcharea%>  </td>
+        <% end %>
+      
+          <%if alum.initialemployer.nil? %>
+          <td>No Initial Employer</td>
+          <%else%>
+          <td><%=link_to  alum.initialemployer.name, alum.initialemployer%>  </td>
+          <% end %>
+           
+          <%if alum.about.nil? %>
+          <td>No info.</td>
+          <%else%>
+          <td><%=alum.about%>  </td>
+        <% end %>     
+
         <td><%= link_to 'Show', alum %></td>
         <% if can? :update, alum%> 
         <td><%= link_to 'Edit', edit_alum_path(alum) %></td>
