@@ -15,9 +15,13 @@ class HomepageTest < ActionDispatch::PerformanceTest
     post_via_redirect "/profile/users/sign_in",
     {user: {email: @admin1.email, password: @admin1.password}}
 
-    #edit alumni
+    #new alumni
     get "/alums/new"
+    post_via_redirect "/alums",
+    {alum: {name: "Timothy", uid: "328", email: "timothy@gmail.com", phone: "2839482738"}}
+    #@alum = Alum.create :name => 'Timothy', :email => 'timothy@gmail.com'
 
+    #patch_via_redirect "/alums/#{@alum}"
 
   end
 end
