@@ -1,8 +1,8 @@
 class AlumsController < ApplicationController
 	load_and_authorize_resource
-  skip_authorize_resource :only => [:show, :index]
-  before_filter :authenticate_user!, :except=> [:index, :show]   
-  before_action :set_alum, only: [:show, :edit, :update, :destroy]
+  #skip_authorize_resource :only => [:show, :index]
+  #before_filter :authenticate_user!, :except=> [:index, :show]   
+  #before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
   # GET /alums
   # GET /alums.json
@@ -13,21 +13,26 @@ class AlumsController < ApplicationController
   # GET /alums/1
   # GET /alums/1.json
   def show
+    @alum = Alum.find(params[:id])
   end
 
   # GET /alums/new
   def new
     @alum = Alum.new
+    authorize! :create, Alum
   end
 
   # GET /alums/1/edit
   def edit
+    @alum = Alum.find(params[:id])
+    authorize! :update, Alum
   end
 
   # POST /alums
   # POST /alums.json
   def create
-    #@alum = Alum.new(alum_params)
+    @alum = Alum.new(alum_params)
+        authorize! :create, Alum
 
     respond_to do |format|
       if @alum.save
@@ -43,7 +48,8 @@ class AlumsController < ApplicationController
   # PATCH/PUT /alums/1
   # PATCH/PUT /alums/1.json
   def update
-    #@alum = Alum.find(params[:id])
+    @alum = Alum.find(params[:id])
+      authorize! :update, Alum
     respond_to do |format|
       if @alum.update(alum_params)
         format.html { redirect_to @alum, notice: 'Alum was successfully updated.' }
@@ -58,7 +64,8 @@ class AlumsController < ApplicationController
   # DELETE /alums/1
   # DELETE /alums/1.json
   def destroy
-    #@alum =Alum.find(params[:id])
+    @alum =Alum.find(params[:id])
+    authorize! :edit, Alum
     @alum.destroy
     respond_to do |format|
       format.html { redirect_to alums_url, notice: 'Alum was successfully destroyed.' }

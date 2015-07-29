@@ -3,7 +3,7 @@ require 'test_helper'
 class FacultiesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    @faculty = faculties(:one)
+    @faculty = faculties(:jeff_foster)
   end
 
   test "should get index" do
@@ -21,7 +21,7 @@ class FacultiesControllerTest < ActionController::TestCase
   test "should create faculty" do
     sign_in users(:user_admin)
     assert_difference('Faculty.count') do
-      post :create, faculty: { about: @faculty.about, email: @faculty.email, name: @faculty.name, phone: @faculty.phone }
+      post :create, faculty: { about: @faculty.about, email: @faculty.email, name: @faculty.name}
     end
 
     assert_redirected_to faculty_path(assigns(:faculty))
@@ -40,7 +40,7 @@ class FacultiesControllerTest < ActionController::TestCase
 
   test "should update faculty" do
     sign_in users(:user_admin)
-    patch :update, id: @faculty, faculty: { about: @faculty.about, email: @faculty.email, name: @faculty.name, phone: @faculty.phone }
+    patch :update, id: @faculty, faculty: { about: @faculty.about, email: @faculty.email, name: @faculty.name}
     assert_redirected_to faculty_path(assigns(:faculty))
   end
 

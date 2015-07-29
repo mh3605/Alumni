@@ -115,6 +115,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    require_all (1.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     ruby-prof (0.15.8)
@@ -168,6 +169,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.2.1)
   rails-perftest
+  require_all
   ruby-prof
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

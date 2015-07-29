@@ -3,7 +3,7 @@ require 'test_helper'
 class ResearchareasControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    @researcharea = researchareas(:one)
+    @researcharea = researchareas(:security)
   end
 
   test "should get index" do

@@ -3,7 +3,7 @@ require 'test_helper'
 class InitialemployersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    @initialemployer = initialemployers(:one)
+    @initialemployer = initialemployers(:google)
   end
 
   test "should get index" do

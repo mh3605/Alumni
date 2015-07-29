@@ -49,5 +49,7 @@ group :development, :test do
   gem 'ruby-prof', group: :test
   gem 'rails-perftest'
   gem 'test-unit', group: :test
+
+  gem 'require_all'
 end
 

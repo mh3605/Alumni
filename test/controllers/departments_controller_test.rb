@@ -3,7 +3,7 @@ require 'test_helper'
 class DepartmentsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
-    @department = departments(:one)
+    @department = departments(:computer_science)
   end
 
   test "should get index" do
