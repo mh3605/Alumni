@@ -1,11 +1,12 @@
 class AlumsController < ApplicationController
-	load_and_authorize_resource
+	#load_and_authorize_resource
   #skip_authorize_resource :only => [:show, :index]
   #before_filter :authenticate_user!, :except=> [:index, :show]   
   #before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
   # GET /alums
   # GET /alums.json
+  pre{true}
   def index
     @alums = Alum.all
   end
@@ -25,7 +26,7 @@ class AlumsController < ApplicationController
   # GET /alums/1/edit
   def edit
     @alum = Alum.find(params[:id])
-    authorize! :update, Alum
+    authorize! :update, @alum
   end
 
   # POST /alums
@@ -49,7 +50,7 @@ class AlumsController < ApplicationController
   # PATCH/PUT /alums/1.json
   def update
     @alum = Alum.find(params[:id])
-      authorize! :update, Alum
+      authorize! :update, @alum
     respond_to do |format|
       if @alum.update(alum_params)
         format.html { redirect_to @alum, notice: 'Alum was successfully updated.' }
