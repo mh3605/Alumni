@@ -1,8 +1,8 @@
 class FacultiesController < ApplicationController
-  load_and_authorize_resource
-  skip_authorize_resource :only => [:show, :index]
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_action :set_faculty, only: [:show, :edit, :update, :destroy]
+  #load_and_authorize_resource
+  #skip_authorize_resource :only => [:show, :index]
+  #before_filter :authenticate_user!, :except => [:index, :show]
+  #before_action :set_faculty, only: [:show, :edit, :update, :destroy]
  
   # GET /faculties
   # GET /faculties.json
@@ -13,23 +13,27 @@ class FacultiesController < ApplicationController
   # GET /faculties/1
   # GET /faculties/1.json
   def show
+    @faculty = Faculty.find(params[:id])
     @alums= @faculty.alums
   end
 
   # GET /faculties/new
   def new
     @faculty = Faculty.new
+    authorize! :create, Faculty
   end
 
   # GET /faculties/1/edit
   def edit
+    @faculty = Faculty.find(params[:id])
+    authorize! :update, @faculty
   end
 
   # POST /faculties
   # POST /faculties.json
   def create
     @faculty = Faculty.new(faculty_params)
-
+    authorize! :create, Faculty
     respond_to do |format|
       if @faculty.save
         format.html { redirect_to @faculty, notice: 'Faculty was successfully created.' }
@@ -44,6 +48,8 @@ class FacultiesController < ApplicationController
   # PATCH/PUT /faculties/1
   # PATCH/PUT /faculties/1.json
   def update
+    @faculty = Faculty.find(params[:id])
+    authorize! :update, @faculty
     respond_to do |format|
       if @faculty.update(faculty_params)
         format.html { redirect_to @faculty, notice: 'Faculty was successfully updated.' }
@@ -58,6 +64,8 @@ class FacultiesController < ApplicationController
   # DELETE /faculties/1
   # DELETE /faculties/1.json
   def destroy
+    @faculty = Faculty.find(params[:id])
+    authorize! :edit, @faculty
     @faculty.destroy
     respond_to do |format|
       format.html { redirect_to faculties_url, notice: 'Faculty was successfully destroyed.' }
