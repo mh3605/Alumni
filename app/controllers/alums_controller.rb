@@ -1,7 +1,7 @@
 class AlumsController < ApplicationController
 	#load_and_authorize_resource
   #skip_authorize_resource :only => [:show, :index]
-  #before_filter :authenticate_user!, :except=> [:index, :show]   
+  before_filter :authenticate_user!, :except=> [:index, :show]   
   #before_action :set_alum, only: [:show, :edit, :update, :destroy]
 
   # GET /alums
@@ -18,6 +18,7 @@ class AlumsController < ApplicationController
   end
 
   # GET /alums/new
+  #pre{current_user.admin?}
   def new
     @alum = Alum.new
     authorize! :create, Alum

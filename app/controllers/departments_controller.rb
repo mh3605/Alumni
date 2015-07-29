@@ -1,8 +1,8 @@
 class DepartmentsController < ApplicationController
-	load_and_authorize_resource
-  skip_authorize_resource :only => [:show, :index]
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_action :set_department, only: [:show, :edit, :update, :destroy]
+	#load_and_authorize_resource
+  #skip_authorize_resource :only => [:show, :index]
+  #before_filter :authenticate_user!, :except => [:index, :show]
+  #before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   # GET /departments
   # GET /departments.json
@@ -13,22 +13,27 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
-	@alums= @department.alums
+    @department = Department.find(params[:id])
+	  @alums= @department.alums
   end
 
   # GET /departments/new
   def new
     @department = Department.new
+    authorize! :create, Department
   end
 
   # GET /departments/1/edit
   def edit
+    @department = Department.find(params[:id])
+    authorize! :update, Department
   end
 
   # POST /departments
   # POST /departments.json
   def create
     @department = Department.new(department_params)
+    authorize! :create, Department
 
     respond_to do |format|
       if @department.save
@@ -44,6 +49,8 @@ class DepartmentsController < ApplicationController
   # PATCH/PUT /departments/1
   # PATCH/PUT /departments/1.json
   def update
+    @department = Department.find(params[:id])
+    authorize! :update, Department
     respond_to do |format|
       if @department.update(department_params)
         format.html { redirect_to @department, notice: 'Department was successfully updated.' }
@@ -58,6 +65,8 @@ class DepartmentsController < ApplicationController
   # DELETE /departments/1
   # DELETE /departments/1.json
   def destroy
+    @department = Department.find(params[:id])
+    authorize! :edit, Department
     @department.destroy
     respond_to do |format|
       format.html { redirect_to departments_url, notice: 'Department was successfully destroyed.' }
