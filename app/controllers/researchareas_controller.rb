@@ -1,8 +1,8 @@
 class ResearchareasController < ApplicationController
-  load_and_authorize_resource
-   skip_authorize_resource :only => [:show, :index]
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_action :set_researcharea, only: [:show, :edit, :update, :destroy]
+  #load_and_authorize_resource
+  # skip_authorize_resource :only => [:show, :index]
+  #before_filter :authenticate_user!, :except => [:index, :show]
+  #before_action :set_researcharea, only: [:show, :edit, :update, :destroy]
 
 
   # GET /researchareas
@@ -15,23 +15,27 @@ class ResearchareasController < ApplicationController
   # GET /researchareas/1
   # GET /researchareas/1.json
   def show
+    @researcharea = Researcharea.find(params[:id])
 	  @alums= @researcharea.alums
   end
 
   # GET /researchareas/new
   def new
     @researcharea = Researcharea.new
+    authorize! :create, Researcharea
   end
 
   # GET /researchareas/1/edit
   def edit
+    @researcharea = Researcharea.find(params[:id])
+    authorize! :update, Researcharea
   end
 
   # POST /researchareas
   # POST /researchareas.json
   def create
     @researcharea = Researcharea.new(researcharea_params)
-
+    authorize! :create, Researcharea
     respond_to do |format|
       if @researcharea.save
         format.html { redirect_to @researcharea, notice: 'Researcharea was successfully created.' }
@@ -46,6 +50,8 @@ class ResearchareasController < ApplicationController
   # PATCH/PUT /researchareas/1
   # PATCH/PUT /researchareas/1.json
   def update
+    @researcharea = Researcharea.find(params[:id])
+    authorize! :update, Researcharea
     respond_to do |format|
       if @researcharea.update(researcharea_params)
         format.html { redirect_to @researcharea, notice: 'Researcharea was successfully updated.' }
@@ -60,6 +66,8 @@ class ResearchareasController < ApplicationController
   # DELETE /researchareas/1
   # DELETE /researchareas/1.json
   def destroy
+    @researcharea = Researcharea.find(params[:id])
+    authorize! :edit, Researcharea
     @researcharea.destroy
     respond_to do |format|
       format.html { redirect_to researchareas_url, notice: 'Researcharea was successfully destroyed.' }
