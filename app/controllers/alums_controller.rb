@@ -18,10 +18,11 @@ class AlumsController < ApplicationController
   end
 
   # GET /alums/new
-  #pre{current_user.admin?}
+ pre{current_user.admin?}
   def new
+    #puts "inside method #{self.class}"
     @alum = Alum.new
-    authorize! :create, Alum
+    #authorize! :create, Alum
   end
 
   # GET /alums/1/edit
@@ -32,6 +33,7 @@ class AlumsController < ApplicationController
 
   # POST /alums
   # POST /alums.json
+ # pre{current_user.admin?}
   def create
     @alum = Alum.new(alum_params)
         authorize! :create, Alum
