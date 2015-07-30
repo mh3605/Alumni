@@ -5,12 +5,14 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  pre{ current_user.admin?}
   def index
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
+   pre{ current_user.admin?}
   def show
     @user = User.find(params[:id])
   end
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  pre{current_user== User.find(params[:id])}
+  pre{current_user.admin? || current_user== User.find(params[:id])}
   def edit
     @user = User.find(params[:id])
   end
@@ -43,7 +45,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  pre{current_user== User.find(params[:id])}
+  pre{current_user.admin? || current_user== User.find(params[:id])}
   def update
     @user = User.find(params[:id])
     respond_to do |format|
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
-  pre{current_user== User.find(params[:id])}
+  pre{current_user.admin? || current_user== User.find(params[:id])}
   def destroy
     @user = User.find(params[:id])
     @user.destroy
