@@ -22,22 +22,19 @@ class AlumsController < ApplicationController
   def new
     #puts "inside method #{self.class}"
     @alum = Alum.new
-    #authorize! :create, Alum
   end
 
   # GET /alums/1/edit
+ pre{current_user.admin? || Alum.find(params[:id]).owner?(current_user)}
   def edit
     @alum = Alum.find(params[:id])
-    authorize! :update, @alum
   end
 
   # POST /alums
   # POST /alums.json
- # pre{current_user.admin?}
+  pre{current_user.admin?}
   def create
     @alum = Alum.new(alum_params)
-        authorize! :create, Alum
-
     respond_to do |format|
       if @alum.save
         format.html { redirect_to @alum, notice: 'Alum was successfully created.' }
@@ -51,9 +48,9 @@ class AlumsController < ApplicationController
 
   # PATCH/PUT /alums/1
   # PATCH/PUT /alums/1.json
+   pre{current_user.admin? || Alum.find(params[:id]).owner?(current_user)}
   def update
     @alum = Alum.find(params[:id])
-      authorize! :update, @alum
     respond_to do |format|
       if @alum.update(alum_params)
         format.html { redirect_to @alum, notice: 'Alum was successfully updated.' }
@@ -67,9 +64,9 @@ class AlumsController < ApplicationController
 
   # DELETE /alums/1
   # DELETE /alums/1.json
+   pre{current_user.admin? || Alum.find(params[:id]).owner?(current_user)}
   def destroy
     @alum =Alum.find(params[:id])
-    authorize! :edit, Alum
     @alum.destroy
     respond_to do |format|
       format.html { redirect_to alums_url, notice: 'Alum was successfully destroyed.' }
