@@ -20,22 +20,25 @@ class ResearchareasController < ApplicationController
   end
 
   # GET /researchareas/new
+  pre{current_user.admin?}
   def new
     @researcharea = Researcharea.new
-    authorize! :create, Researcharea
+    #authorize! :create, Researcharea
   end
 
   # GET /researchareas/1/edit
+  pre{current_user.admin?}
   def edit
     @researcharea = Researcharea.find(params[:id])
-    authorize! :update, Researcharea
+    #authorize! :update, Researcharea
   end
 
   # POST /researchareas
   # POST /researchareas.json
+  pre{current_user.admin?}
   def create
     @researcharea = Researcharea.new(researcharea_params)
-    authorize! :create, Researcharea
+    #authorize! :create, Researcharea
     respond_to do |format|
       if @researcharea.save
         format.html { redirect_to @researcharea, notice: 'Researcharea was successfully created.' }
@@ -49,9 +52,10 @@ class ResearchareasController < ApplicationController
 
   # PATCH/PUT /researchareas/1
   # PATCH/PUT /researchareas/1.json
+  pre{current_user.admin?}
   def update
     @researcharea = Researcharea.find(params[:id])
-    authorize! :update, Researcharea
+    #authorize! :update, Researcharea
     respond_to do |format|
       if @researcharea.update(researcharea_params)
         format.html { redirect_to @researcharea, notice: 'Researcharea was successfully updated.' }
@@ -65,9 +69,10 @@ class ResearchareasController < ApplicationController
 
   # DELETE /researchareas/1
   # DELETE /researchareas/1.json
+  pre{current_user.admin?}
   def destroy
     @researcharea = Researcharea.find(params[:id])
-    authorize! :edit, Researcharea
+    #authorize! :edit, Researcharea
     @researcharea.destroy
     respond_to do |format|
       format.html { redirect_to researchareas_url, notice: 'Researcharea was successfully destroyed.' }

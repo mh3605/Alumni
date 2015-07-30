@@ -18,22 +18,25 @@ class DepartmentsController < ApplicationController
   end
 
   # GET /departments/new
+   pre{current_user.admin?}
   def new
     @department = Department.new
-    authorize! :create, Department
+    #authorize! :create, Department
   end
 
   # GET /departments/1/edit
+   pre{current_user.admin?}
   def edit
     @department = Department.find(params[:id])
-    authorize! :update, Department
+    #authorize! :update, Department
   end
 
   # POST /departments
   # POST /departments.json
+   pre{current_user.admin?}
   def create
     @department = Department.new(department_params)
-    authorize! :create, Department
+    #authorize! :create, Department
 
     respond_to do |format|
       if @department.save
@@ -48,9 +51,10 @@ class DepartmentsController < ApplicationController
 
   # PATCH/PUT /departments/1
   # PATCH/PUT /departments/1.json
+   pre{current_user.admin?}
   def update
     @department = Department.find(params[:id])
-    authorize! :update, Department
+    #authorize! :update, Department
     respond_to do |format|
       if @department.update(department_params)
         format.html { redirect_to @department, notice: 'Department was successfully updated.' }
@@ -64,9 +68,10 @@ class DepartmentsController < ApplicationController
 
   # DELETE /departments/1
   # DELETE /departments/1.json
+   pre{current_user.admin?}
   def destroy
     @department = Department.find(params[:id])
-    authorize! :edit, Department
+    #authorize! :edit, Department
     @department.destroy
     respond_to do |format|
       format.html { redirect_to departments_url, notice: 'Department was successfully destroyed.' }

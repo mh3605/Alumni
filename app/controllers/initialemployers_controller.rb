@@ -18,22 +18,25 @@ class InitialemployersController < ApplicationController
   end
 
   # GET /initialemployers/new
+  pre{current_user.admin?}
   def new
     @initialemployer = Initialemployer.new
-    authorize! :create, Initialemployer
+    #authorize! :create, Initialemployer
   end
 
   # GET /initialemployers/1/edit
+  pre{current_user.admin?}
   def edit
       @initialemployer = Initialemployer.find(params[:id])
-      authorize! :update, Initialemployer
+      #authorize! :update, Initialemployer
   end
 
   # POST /initialemployers
   # POST /initialemployers.json
+  pre{current_user.admin?}
   def create
     @initialemployer = Initialemployer.new(initialemployer_params)
-    authorize! :create, Initialemployer
+    #authorize! :create, Initialemployer
     respond_to do |format|
       if @initialemployer.save
         format.html { redirect_to @initialemployer, notice: 'Initialemployer was successfully created.' }
@@ -47,9 +50,10 @@ class InitialemployersController < ApplicationController
 
   # PATCH/PUT /initialemployers/1
   # PATCH/PUT /initialemployers/1.json
+  pre{current_user.admin?}
   def update
     @initialemployer = Initialemployer.find(params[:id])
-    authorize! :update, Initialemployer
+    #authorize! :update, Initialemployer
     respond_to do |format|
       if @initialemployer.update(initialemployer_params)
         format.html { redirect_to @initialemployer, notice: 'Initialemployer was successfully updated.' }
@@ -63,9 +67,10 @@ class InitialemployersController < ApplicationController
 
   # DELETE /initialemployers/1
   # DELETE /initialemployers/1.json
+  pre{current_user.admin?}
   def destroy
     @initialemployer = Initialemployer.find(params[:id])
-    authorize! :edit, Initialemployer
+    #authorize! :edit, Initialemployer
     @initialemployer.destroy
     respond_to do |format|
       format.html { redirect_to initialemployers_url, notice: 'Initialemployer was successfully destroyed.' }

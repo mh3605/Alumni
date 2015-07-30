@@ -18,22 +18,25 @@ class FacultiesController < ApplicationController
   end
 
   # GET /faculties/new
+   pre{current_user.admin?}
   def new
     @faculty = Faculty.new
-    authorize! :create, Faculty
+    #authorize! :create, Faculty
   end
 
   # GET /faculties/1/edit
+  pre{current_user.admin? || current_user.getFaculty== Faculty.find(params[:id])}
   def edit
     @faculty = Faculty.find(params[:id])
-    authorize! :update, @faculty
+    #authorize! :update, @faculty
   end
 
   # POST /faculties
+   pre{current_user.admin?}
   # POST /faculties.json
   def create
     @faculty = Faculty.new(faculty_params)
-    authorize! :create, Faculty
+    #authorize! :create, Faculty
     respond_to do |format|
       if @faculty.save
         format.html { redirect_to @faculty, notice: 'Faculty was successfully created.' }
@@ -47,9 +50,10 @@ class FacultiesController < ApplicationController
 
   # PATCH/PUT /faculties/1
   # PATCH/PUT /faculties/1.json
+  pre{current_user.admin? || current_user.getFaculty== Faculty.find(params[:id])}
   def update
     @faculty = Faculty.find(params[:id])
-    authorize! :update, @faculty
+    #authorize! :update, @faculty
     respond_to do |format|
       if @faculty.update(faculty_params)
         format.html { redirect_to @faculty, notice: 'Faculty was successfully updated.' }
@@ -63,9 +67,10 @@ class FacultiesController < ApplicationController
 
   # DELETE /faculties/1
   # DELETE /faculties/1.json
+  pre{current_user.admin? || current_user.getFaculty== Faculty.find(params[:id])}
   def destroy
     @faculty = Faculty.find(params[:id])
-    authorize! :edit, @faculty
+    #authorize! :edit, @faculty
     @faculty.destroy
     respond_to do |format|
       format.html { redirect_to faculties_url, notice: 'Faculty was successfully destroyed.' }

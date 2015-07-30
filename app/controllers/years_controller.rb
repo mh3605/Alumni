@@ -18,22 +18,25 @@ class YearsController < ApplicationController
   end
 
   # GET /years/new
+  pre{current_user.admin?}
   def new
     @year = Year.new
-    authorize! :create, Year
+    #authorize! :create, Year
   end
 
   # GET /years/1/edit
+  pre{current_user.admin?}
   def edit
     @year = Year.find(params[:id])
-    authorize! :update, Year
+    #authorize! :update, Year
   end
 
   # POST /years
   # POST /years.json
+  pre{current_user.admin?}
   def create
     @year = Year.new(year_params)
-    authorize! :create, Year
+    #authorize! :create, Year
 
     respond_to do |format|
       if @year.save
@@ -48,9 +51,10 @@ class YearsController < ApplicationController
 
   # PATCH/PUT /years/1
   # PATCH/PUT /years/1.json
+  pre{current_user.admin?}
   def update
     @year = Year.find(params[:id])
-    authorize! :update, Year
+    #authorize! :update, Year
     respond_to do |format|
       if @year.update(year_params)
         format.html { redirect_to @year, notice: 'Year was successfully updated.' }
@@ -64,9 +68,10 @@ class YearsController < ApplicationController
 
   # DELETE /years/1
   # DELETE /years/1.json
+  pre{current_user.admin?}
   def destroy
     @year = Year.find(params[:id])
-    authorize! :edit, Year
+    #authorize! :edit, Year
     @year.destroy
     respond_to do |format|
       format.html { redirect_to years_url, notice: 'Year was successfully destroyed.' }
